@@ -9,6 +9,12 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class DefaultController extends AbstractController
 {
+    #[Route('/', name: 'blog_default')]
+    public function start(): Response
+    {
+        return $this->redirectToRoute('app_blog_index');
+    }
+
     #[Route('/default/{page}/{slug}', name: 'app_default', requirements: ['page' => '\d+'], defaults: ['slug' => 'chipio'],  methods: ['GET'])]
     public function index(Request $request, $slug, int $page): Response
     {

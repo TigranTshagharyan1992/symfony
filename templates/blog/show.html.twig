@@ -13,11 +13,17 @@
             </tr>
             <tr>
                 <th>Title</th>
-                <td>{{ blog.title }}</td>
+                <td>{{ blog.title | capitalize }}</td>
             </tr>
+            {% if blog.categories %}
+            <tr>
+                <th>Category</th>
+                <td>{{ blog.categories.title}}</td>
+            </tr>
+            {% endif %}
             <tr>
                 <th>Text</th>
-                <td>{{ blog.text }}</td>
+                <td>{{ blog.text | raw}}</td>
             </tr>
         </tbody>
     </table>
